@@ -1,0 +1,43 @@
+[user]
+  name = Kristján Oddsson
+  email = koddsson@gmail.com
+  signingkey = F5C58CF9F8FE5D63
+[alias]
+  st=status -sb
+[core]
+  editor = nvim
+  excludesfile = ~/.gitignore
+[commit]
+  verbose = true
+[commit]
+  template = ~/.gitmessage
+  gpgsign = true
+[github]
+  user = koddsson
+[push]
+  default = simple
+[credential]
+  helper = osxkeychain
+[grep]
+  lineNumber = true
+[merge "npm-merge-driver"]
+  name = automatically merge npm lockfiles
+  driver = npx npm-merge-driver merge %A %O %B %P
+[gc]
+  auto = 1
+[http]
+  sslVerify = true
+[help]
+  autocorrect = -1
+[rebase]
+  autoStash = 1
+[merge]
+  tool = vimdiff
+[mergetool]
+  prompt = true
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[difftool]
+  prompt = false
+[diff]
+  tool = vimdiff<Paste>

@@ -1,0 +1,6 @@
+.DS_Store
+.envrc
+launch.json
+.vscode
+.vcmrc
+.cfg
