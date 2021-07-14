@@ -13,10 +13,7 @@ brew clingo
 brew cmake
 brew coreutils
 brew direnv
-brew docker
-brew docker-machine
 brew elasticsearch@2.4
-brew ethereum
 brew ffmpeg
 brew fontconfig
 brew freetype
@@ -32,9 +29,6 @@ brew glide
 brew gmp
 brew gnuplot
 brew gnutls
-brew go
-brew go@1.8
-brew go@1.9
 brew gobject-introspection
 brew graphite2
 brew harfbuzz
@@ -43,9 +37,6 @@ brew hub
 brew hugo
 brew hyperscan
 brew icu4c
-brew ievms
-brew imagemagick
-brew imagemagick@6
 brew jansson
 brew jemalloc
 brew jpeg
@@ -75,13 +66,13 @@ brew luajit
 brew mas
 brew md5sha1sum
 brew memcached
-brew mongodb
 brew msgpack
+# Node version manager
 brew n
+# My editor and IDE
 brew neovim
 brew nettle
 brew nginx
-brew node
 brew ocaml
 brew ocamlbuild
 brew oniguruma
@@ -91,19 +82,14 @@ brew openssl@1.1
 brew p11-kit
 brew pango
 brew pcre
-brew phantomjs
 brew pidof
 brew pixman
 brew pkg-config
 brew postgresql
-brew python
-brew python@2
 brew rbenv
 brew readline
 brew redis
 brew ripgrep
-brew ruby
-brew ruby-build
 brew socat
 brew softhsm
 brew sqlite
@@ -114,29 +100,25 @@ brew unibilium
 brew watch
 brew watchman
 brew webp
-brew wifi-password
 brew x264
 brew xvid
 brew xz
-brew yarn
-brew zookeeper
-brew zsh
+
+brew fish
 
 tap homebrew/bundle
-
-tap homebrew/bundle
-
 tap homebrew/cask-versions
 cask java8
 
 tap homebrew/services
-
 tap homebrew/cask
-cask graphiql
+
+# Useful so show the keyboard when screencasting
 cask keycastr
 
 tap caskroom/versions
 
+# For GitHub
 tap github/bootstrap
 brew elasticsearch@1.7
 
