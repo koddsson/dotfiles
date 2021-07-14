@@ -4,6 +4,7 @@
   signingkey = F5C58CF9F8FE5D63
 [alias]
   st=status -sb
+  recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
 [core]
   editor = nvim
   excludesfile = ~/.gitignore
@@ -15,7 +16,7 @@
 [github]
   user = koddsson
 [push]
-  default = simple
+  default = current
 [credential]
   helper = osxkeychain
 [grep]
@@ -41,3 +42,13 @@
   prompt = false
 [diff]
   tool = vimdiff<Paste>
+[pull]
+  rebase = false
+[remote "origin"]
+  prune = true
+[gpg]
+  program = /usr/local/bin/gpg
+[init]
+  defaultBranch = main
+[tag]
+  gpgSign = true
