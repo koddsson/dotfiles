@@ -1,3 +1,5 @@
+# Installation script for a non-bare repository. This scripts assumes a Linux host.
+
 # Install my editor and IDE
 apt-get install -y neovim
 
@@ -18,10 +20,12 @@ npm install -g n @koddsson/coworking-with
 # Start using latest node version
 n latest
 
-ln -s .config/nvim ~/.config/nvim
-ln -sf .gitconfig ~/.gitconfig
-ln -sf .gitignore ~/.gitignore
-ln -s .gitmodules ~/.gitmodules
+if [ -n "$CODESPACES" ]; then
+  ln -sf /workspaces/.codespaces/.persistedshare/dotfiles/.config /root/.config
+  ln -sf /workspaces/.codespaces/.persistedshare/dotfiles/.gitconfig /root/.gitconfig
+  ln -sf /workspaces/.codespaces/.persistedshare/dotfiles/.gitignore /root/.gitignore
+  ln -sf /workspaces/.codespaces/.persistedshare/dotfiles/.gitmodules /root/.gitmodules
+fi
 
 # Update path after installing latest node
 PATH="$PATH"
