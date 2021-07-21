@@ -13,15 +13,15 @@ npm install -g npm@latest
 # n: node version manager that I like
 # @koddsson/coworking-with: utility to add `coworking-with` stanzas to commits
 
-npm install -g n @koddsson/coworking-with  
-  
+npm install -g n @koddsson/coworking-with
+
 # Start using latest node version
 n latest
 
-ln -s .config ~/.config
-ln -s .gitconfig ~/.gitconfig
-ln -s .gitignore ~/.gitignore
+ln -s .config/nvim ~/.config/nvim
+ln -sf .gitconfig ~/.gitconfig
+ln -sf .gitignore ~/.gitignore
 ln -s .gitmodules ~/.gitmodules
-  
+
 # Update path after installing latest node
 PATH="$PATH"
