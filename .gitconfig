@@ -52,3 +52,5 @@
   defaultBranch = main
 [tag]
   gpgSign = true
+[submodule]
+	recurse = true
