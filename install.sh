@@ -17,6 +17,11 @@ npm install -g n @koddsson/coworking-with
   
 # Start using latest node version
 n latest
+
+ln -s .config ~/.config
+ln -s .gitconfig ~/.gitconfig
+ln -s .gitignore ~/.gitignore
+ln -s .gitmodules ~/.gitmodules
   
 # Update path after installing latest node
 PATH="$PATH"
