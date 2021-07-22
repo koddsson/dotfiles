@@ -1,7 +1,12 @@
-# Installation script for a non-bare repository. This scripts assumes a Linux host.
+# Installation script for a non-bare repository. This scripts assumes debian buster as the host.
 
-# Install my editor and IDE
-apt-get install -y neovim
+# Debian Buster has a old version of neovim so I have to build my own.
+apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl
+git clone https://github.com/neovim/neovim
+cd neovim
+make CMAKE_BUILD_TYPE=Release
+sudo make install
+cd ..
 
 # Update node to a decent version
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
