@@ -1,12 +1,21 @@
 # Installation script for a non-bare repository. This scripts assumes debian buster as the host.
 
-# Debian Buster has a old version of neovim so I have to build my own.
-apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl
-git clone https://github.com/neovim/neovim
-cd neovim
-make CMAKE_BUILD_TYPE=Release
-sudo make install
-cd ..
+mkdir $HOME
+
+# No thank you
+rm -rf .oh-my-bash
+rm -rf .oh-my-zsh
+rm .zshrc
+
+# I'd like to use fish, please
+apt-get install -y fish
+chsh -s /usr/bin/fish
+
+# Debian Buster has a old version of neovim so we need to install the AppImage
+apt-get install -y libfuse2
+wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+chmod u+x nvim.appimage
+mv nvim.appimage /usr/local/bin/nvim
 
 # Update node to a decent version
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
