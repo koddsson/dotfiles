@@ -26,7 +26,7 @@ npm install -g n @koddsson/coworking-with
 n latest
 
 if [ -n "$CODESPACES" ]; then
-  ln -sf /workspaces/.codespaces/.persistedshare/dotfiles/.config /root/.config
+  ln -sf /workspaces/.codespaces/.persistedshare/dotfiles/.config/ /root/
   ln -sf /workspaces/.codespaces/.persistedshare/dotfiles/.gitconfig /root/.gitconfig
   ln -sf /workspaces/.codespaces/.persistedshare/dotfiles/.gitignore /root/.gitignore
   ln -sf /workspaces/.codespaces/.persistedshare/dotfiles/.gitmodules /root/.gitmodules
