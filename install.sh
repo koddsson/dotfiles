@@ -27,5 +27,8 @@ if [ -n "$CODESPACES" ]; then
   ln -sf /workspaces/.codespaces/.persistedshare/dotfiles/.gitmodules /root/.gitmodules
 fi
 
+# Pull any submodules
+git submodule update --init
+
 # Update path after installing latest node
 PATH="$PATH"
