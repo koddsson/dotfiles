@@ -1,6 +1,6 @@
-# Installation script for a non-bare repository. This scripts assumes debian buster as the host.
+#!/bin/bash
 
-mkdir $HOME
+# Installation script for a non-bare repository. This scripts assumes debian buster as the host.
 
 # No thank you
 rm -rf .oh-my-bash
@@ -34,15 +34,19 @@ npm install -g n @koddsson/coworking-with
 # Start using latest node version
 n latest
 
-if [ -n "$CODESPACES" ]; then
-  ln -sf /workspaces/.codespaces/.persistedshare/dotfiles/.config/ /root/
-  ln -sf /workspaces/.codespaces/.persistedshare/dotfiles/.gitconfig /root/.gitconfig
-  ln -sf /workspaces/.codespaces/.persistedshare/dotfiles/.gitignore /root/.gitignore
-  ln -sf /workspaces/.codespaces/.persistedshare/dotfiles/.gitmodules /root/.gitmodules
-fi
-
 # Pull any submodules
 git submodule update --init
+
+# Symlink config files
+if [ -n "$CODESPACES" ]; then
+  ln -sf $(pwd)/.config/ $HOME
+  ln -sf $(pwd)/.gitconfig $HOME/.gitconfig
+  ln -sf $(pwd)/.gitignore $HOME/.gitignore
+  ln -sf $(pwd)/.gitmodules $HOME/.gitmodules
+fi
+
+# Install vim plugins
+/usr/local/bin/nvim +'PlugInstall --sync' +qa
 
 # Update path after installing latest node
 PATH="$PATH"
