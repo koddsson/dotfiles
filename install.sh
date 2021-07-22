@@ -39,7 +39,7 @@ git submodule update --init
 
 # Symlink config files
 if [ -n "$CODESPACES" ]; then
-  ln -sf $(pwd)/.config/ $HOME
+  ln -sf $(pwd)/.config/nvim $HOME/.config/nvim
   ln -sf $(pwd)/.gitconfig $HOME/.gitconfig
   ln -sf $(pwd)/.gitignore $HOME/.gitignore
   ln -sf $(pwd)/.gitmodules $HOME/.gitmodules
