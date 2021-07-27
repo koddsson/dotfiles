@@ -39,6 +39,8 @@ git submodule update --init
 
 # Symlink config files
 if [ -n "$CODESPACES" ]; then
+  # Create the config directory if it doesn't exist already
+  mkdir "$HOME/.config/"
   ln -sf "$(pwd)/.config/nvim/" "$HOME/.config/"
   ln -sf "$(pwd)/.gitconfig" "$HOME/.gitconfig"
   ln -sf "$(pwd)/.gitignore" "$HOME/.gitignore"
