@@ -1,0 +1,28 @@
+# Defined in /var/folders/qk/_d9qjxqd5zq_61nnky9714_m0000gn/T//fish.Epd9GL/fish_prompt.fish @ line 2
+function fish_prompt
+	set -l blue (set_color blue)
+  set -l green (set_color green)
+  set -l normal (set_color normal)
+
+  set -l arrow "λ"
+  set -l cwd $blue(basename (prompt_pwd))
+  set -l pwd (pwd)
+
+  echo (_git_branch_name)
+
+  if [ (_git_branch_name) ]
+    set git_info $green(_git_branch_name)
+    set git_info ":$git_info"
+
+    if [ (_is_git_dirty) ]
+      set -l dirty "*"
+      set git_info "$git_info$dirty"
+    end
+
+    if test -e "$pwd/.coauthoring-with"
+      set git_extra "👨🏻‍💻"
+    end
+  end
+
+  echo -n -s $cwd $git_info $git_extra $normal ' ' $arrow ' '
+end
