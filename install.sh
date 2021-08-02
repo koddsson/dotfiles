@@ -41,11 +41,11 @@ git submodule update --init
 mkdir "$HOME/.config/"
 
 # Symlink config files
-ln -s "$(pwd)/.config/nvim/" "$HOME/.config/"
-ln -s "$(pwd)/.gitconfig" "$HOME/.gitconfig"
-ln -s "$(pwd)/.gitignore" "$HOME/.gitignore"
-ln -s "$(pwd)/.gitmodules" "$HOME/.gitmodules"
-ln -s "$(pwd)/.gitmessage" "$HOME/.gitmessage"
+ln -sf "$(pwd)/.config/nvim/" "$HOME/.config/"
+ln -sf "$(pwd)/.gitconfig" "$HOME/.gitconfig"
+ln -sf "$(pwd)/.gitignore" "$HOME/.gitignore"
+ln -sf "$(pwd)/.gitmodules" "$HOME/.gitmodules"
+ln -sf "$(pwd)/.gitmessage" "$HOME/.gitmessage"
 
 # Install vim plugins
 /usr/local/bin/nvim +'PlugInstall --sync' +qa
