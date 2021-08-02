@@ -17,8 +17,6 @@
   user = koddsson
 [push]
   default = current
-[credential]
-  helper = osxkeychain
 [grep]
   lineNumber = true
 [merge "npm-merge-driver"]
@@ -53,4 +51,6 @@
 [tag]
   gpgSign = true
 [submodule]
-	recurse = true
+  recurse = true
+[include]
+  path = ~/.gitconfig-osx
