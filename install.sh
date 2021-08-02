@@ -41,10 +41,11 @@ git submodule update --init
 if [ -n "$CODESPACES" ]; then
   # Create the config directory if it doesn't exist already
   mkdir "$HOME/.config/"
-  ln -sf "$(pwd)/.config/nvim/" "$HOME/.config/"
-  ln -sf "$(pwd)/.gitconfig" "$HOME/.gitconfig"
-  ln -sf "$(pwd)/.gitignore" "$HOME/.gitignore"
-  ln -sf "$(pwd)/.gitmodules" "$HOME/.gitmodules"
+  ln -s "$(pwd)/.config/nvim/" "$HOME/.config/"
+  ln -s "$(pwd)/.gitconfig" "$HOME/.gitconfig"
+  ln -s "$(pwd)/.gitignore" "$HOME/.gitignore"
+  ln -s "$(pwd)/.gitmodules" "$HOME/.gitmodules"
+  ln -s "$(pwd)/.gitmessage" "$HOME/.gitmessage"
 fi
 
 # Install vim plugins
