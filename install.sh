@@ -37,16 +37,15 @@ n latest
 # Pull any submodules
 git submodule update --init
 
+# Create the config directory if it doesn't exist already
+mkdir "$HOME/.config/"
+
 # Symlink config files
-if [ -n "$CODESPACES" ]; then
-  # Create the config directory if it doesn't exist already
-  mkdir "$HOME/.config/"
-  ln -s "$(pwd)/.config/nvim/" "$HOME/.config/"
-  ln -s "$(pwd)/.gitconfig" "$HOME/.gitconfig"
-  ln -s "$(pwd)/.gitignore" "$HOME/.gitignore"
-  ln -s "$(pwd)/.gitmodules" "$HOME/.gitmodules"
-  ln -s "$(pwd)/.gitmessage" "$HOME/.gitmessage"
-fi
+ln -s "$(pwd)/.config/nvim/" "$HOME/.config/"
+ln -s "$(pwd)/.gitconfig" "$HOME/.gitconfig"
+ln -s "$(pwd)/.gitignore" "$HOME/.gitignore"
+ln -s "$(pwd)/.gitmodules" "$HOME/.gitmodules"
+ln -s "$(pwd)/.gitmessage" "$HOME/.gitmessage"
 
 # Install vim plugins
 /usr/local/bin/nvim +'PlugInstall --sync' +qa
