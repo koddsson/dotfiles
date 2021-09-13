@@ -13,6 +13,10 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Don't show all the untracked files in $HOME
 config config status.showUntrackedFiles no
+
+# Pull the main branch and submodules
+config pull origin/main
+config submodule update --init --recursive
 ```
 
 ### Neovim config
