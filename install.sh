@@ -12,9 +12,9 @@ apt-get install -y fish
 chsh -s /usr/bin/fish
 
 # Debian Buster has a old version of neovim so we need to install the AppImage
-apt-get install -y libfuse2 fuse
+apt-get install -y libfuse2
 
-sudo modprobe fuse
+sudo apt install fuse -y
 sudo groupadd fuse
 
 user="$(whoami)"
