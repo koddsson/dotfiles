@@ -8,25 +8,24 @@ rm -rf .oh-my-zsh
 rm .zshrc
 
 # I'd like to use fish, please
-apt-get install -y fish
-chsh -s /usr/bin/fish
+sudo apt-get install -y fish
+sudo chsh -s /usr/bin/fish
 
 # Debian Buster has a old version of neovim so we need to install the AppImage
-apt-get install -y libfuse2
+sudo apt-get install -y libfuse2
 
 sudo apt install fuse -y
 sudo groupadd fuse
-
 user="$(whoami)"
 sudo usermod -a -G fuse $user
 
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 chmod u+x nvim.appimage
-mv nvim.appimage /usr/local/bin/nvim
+sudo mv nvim.appimage /usr/local/bin/nvim
 
 # Update node to a decent version
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-apt-get install -y nodejs
+sudo apt-get install -y nodejs
 
 # Update npm
 npm install -g npm@latest
