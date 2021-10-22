@@ -19,7 +19,7 @@ sudo groupadd fuse
 user="$(whoami)"
 sudo usermod -a -G fuse $user
 
-wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+wget https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 sudo mv nvim.appimage /usr/local/bin/nvim
 
