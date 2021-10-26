@@ -37,6 +37,11 @@ npm install -g npm@latest
 
 npm install -g n @koddsson/coworking-with
 
+# Install neovim LSP packages
+npm install -g \
+  typescript-language-server \
+  vscode-langservers-extracted
+
 # Start using latest node version
 n latest
 
