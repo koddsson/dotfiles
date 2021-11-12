@@ -41,7 +41,7 @@ const globalNpmPackages = [
 ]
 
 // Install npm packages
-await $`npm install -g ${globalNpmPackages.join(' ')}`
+await $`npm install -g ${globalNpmPackages}`
 
 // Start using latest node version
 await $`n latest`
