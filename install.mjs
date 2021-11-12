@@ -50,7 +50,7 @@ await $`n latest`
 await $`git submodule update --init`
 
 // Create the config directory if it doesn't exist already
-await $`mkdir "$HOME/.config/"`
+await $`mkdir -p "$HOME/.config/"`
 
 // Symlink config files
 await $`ln -sf "$(pwd)/.config/nvim/" "$HOME/.config/"`
