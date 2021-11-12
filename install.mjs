@@ -32,7 +32,7 @@ await $`sudo apt-get install -y nodejs`
 // Update npm
 await $`npm install -g npm@latest`
   
-const gloablNpmPackages = [
+const globalNpmPackages = [
   'n',                              // n: node version manager that I like
   '@koddsson/coworking-with',       // @koddsson/coworking-with: utility to add `coworking-with` stanzas to commits
   'typescript-language-server',     // typescript-language-server: Needed for TypeScript LSP in neovim
@@ -41,7 +41,7 @@ const gloablNpmPackages = [
 ]
 
 // Install npm packages
-await $`npm install -g ${gloablNpmPackages.join(' ')}`
+await $`npm install -g ${globalNpmPackages.join(' ')}`
 
 // Start using latest node version
 await $`n latest`
