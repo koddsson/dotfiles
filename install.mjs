@@ -1,13 +1,13 @@
-#!/usr/bin/env zx
-
-import 'zx/globals'
-
 // Installation script for a non-bare repository. This scripts assumes debian buster as the host.
 
 // Remove bash and zshrc configs
-await $`rm -rf .oh-my-bash`
-await $`rm -rf .oh-my-zsh`
-await $`rm .zshrc`
+try {
+  await $`rm -rf .oh-my-bash`
+  await $`rm -rf .oh-my-zsh`
+  await $`rm .zshrc`
+} catch (error) {
+  console.log(error)
+}
 
 // Install fish
 await $`sudo apt-get install -y fish`
@@ -18,8 +18,7 @@ await $`sudo apt-get install -y libfuse2`
 
 await $`sudo apt install fuse -y`
 await $`sudo groupadd fuse`
-await $`user="$(whoami)"`
-await $`sudo usermod -a -G fuse $user`
+await $`sudo usermod -a -G fuse $(whoami)`
 
 // TODO: Build neovim from source instead
 await $`wget https://github.com/neovim/neovim/releases/latest/download/nvim.appimage`
