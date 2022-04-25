@@ -8,9 +8,9 @@ await $`sudo mkdir -p /usr/local/bin /usr/local/lib /usr/local/include /usr/loca
 // take ownership of Node.js install destination folders
 await $`sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share`
 
-await $`npx --yes n latest`
 await $`sudo npm install -g npm@latest n`
 
+await $`n latest`
 
 // Remove bash and zshrc configs
 try {
