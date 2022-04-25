@@ -14,6 +14,8 @@ await $`n latest`
 
 // Re-hash the shell so it picks up changes from n
 await $`hash -r`
+// Update path after installing latest node
+await $`PATH="$PATH"`
 
 // Remove bash and zshrc configs
 try {
@@ -65,6 +67,3 @@ await $`ln -sf "$(pwd)/.gitmessage" "$HOME/.gitmessage"`
 
 // Install vim plugins
 await $`/usr/local/bin/nvim +'PlugInstall --sync' +qa`
-
-// Update path after installing latest node
-await $`PATH="$PATH"`
