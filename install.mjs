@@ -12,6 +12,9 @@ await $`sudo npm install -g npm@latest n`
 
 await $`n latest`
 
+// Re-hash the shell so it picks up changes from n
+await $`hash -r`
+
 // Remove bash and zshrc configs
 try {
   await $`rm -rf .oh-my-bash`
