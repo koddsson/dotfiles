@@ -1,5 +1,22 @@
 // Installation script for a non-bare repository. This scripts assumes debian buster as the host.
 
+// Update node to a decent version
+await $`curl -fsSL https://deb.nodesource.com/setup_16.x | sudo bash -`
+await $`sudo apt-get install -y nodejs`
+
+// make cache folder (if missing) and take ownership
+await $`sudo mkdir -p /usr/local/n`
+await $`sudo chown -R $(whoami) /usr/local/n`
+// make sure the required folders exist (safe to execute even if they already exist)
+await $`sudo mkdir -p /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share`
+// take ownership of Node.js install destination folders
+await $`sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share`
+
+await $`npm install -g n@latest`
+await $`n latest`
+await $`npm install -g npm@latest`
+
+
 // Remove bash and zshrc configs
 try {
   await $`rm -rf .oh-my-bash`
