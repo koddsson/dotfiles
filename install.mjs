@@ -25,15 +25,7 @@ await $`wget https://github.com/neovim/neovim/releases/latest/download/nvim.appi
 await $`chmod u+x nvim.appimage`
 await $`sudo mv nvim.appimage /usr/local/bin/nvim`
 
-// Update node to a decent version
-await $`curl -fsSL https://deb.nodesource.com/setup_16.x | bash -`
-await $`sudo apt-get install -y nodejs`
-
-// Update npm
-await $`npm install -g npm@latest`
-  
 const globalNpmPackages = [
-  'n',                              // n: node version manager that I like
   '@koddsson/coworking-with',       // @koddsson/coworking-with: utility to add `coworking-with` stanzas to commits
   'typescript-language-server',     // typescript-language-server: Needed for TypeScript LSP in neovim
   'vscode-langservers-extracted',   // vscode-langservers-extracted: Needed for various languages in neovim
@@ -42,9 +34,6 @@ const globalNpmPackages = [
 
 // Install npm packages
 await $`npm install -g ${globalNpmPackages}`
-
-// Start using latest node version
-await $`n latest`
 
 // Pull any submodules
 await $`git submodule update --init`
