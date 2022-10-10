@@ -33,9 +33,11 @@ await $`sudo chsh -s /usr/bin/fish`
 // Debian Buster has a old version of neovim so we need to install the AppImage
 await $`sudo apt-get install -y libfuse2`
 
-await $`sudo apt install fuse -y`
-await $`sudo groupadd fuse`
-await $`sudo usermod -a -G fuse $(whoami)`
+await Promise.allSettled([
+  $`sudo apt install fuse -y`,
+  $`sudo groupadd fuse`,
+  $`sudo usermod -a -G fuse $(whoami)`
+])
 
 // TODO: Build neovim from source instead
 await $`wget https://github.com/neovim/neovim/releases/latest/download/nvim.appimage`
