@@ -10,7 +10,7 @@ await $`sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include
 
 await $`sudo npm install -g npm@latest n`
 
-await $`n latest`
+await $`n lts`
 
 // Re-hash the shell so it picks up changes from n
 await $`hash -r`
