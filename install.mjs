@@ -48,7 +48,8 @@ const globalNpmPackages = [
   '@koddsson/coworking-with',       // @koddsson/coworking-with: utility to add `coworking-with` stanzas to commits
   'typescript-language-server',     // typescript-language-server: Needed for TypeScript LSP in neovim
   'vscode-langservers-extracted',   // vscode-langservers-extracted: Needed for various languages in neovim
-  'stylelint-lsp'                   // stylelint-lsp: Needed for stylelint in neovim
+  'stylelint-lsp',                  // stylelint-lsp: Needed for stylelint in neovim
+  'tree-sitter'                     // Needed so that treesitter can install parsers automatically
 ]
 
 // Install npm packages
