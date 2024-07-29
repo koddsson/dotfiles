@@ -1,27 +1,27 @@
 [user]
   name = Kristján Oddsson
   email = koddsson@gmail.com
-  signingkey = F5C58CF9F8FE5D63
+	signingkey = 55103ED7B821DC13
 [alias]
-  st=status -sb
-  recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
+  st = status -sb
+  recent = !x git-recent
+  ranch = !imgcat ~/Downloads/cowbow-kitten.png
 [core]
+  pager = delta
   editor = nvim
   excludesfile = ~/.gitignore
 [commit]
   verbose = true
-[commit]
   template = ~/.gitmessage
-  gpgsign = true
+	gpgsign = false
 [github]
   user = koddsson
 [push]
-  default = current
+	default = simple
+	autoSetupRemote = true
+	autoSetupRemote = true
 [grep]
   lineNumber = true
-[merge "npm-merge-driver"]
-  name = automatically merge npm lockfiles
-  driver = npx npm-merge-driver merge %A %O %B %P
 [gc]
   auto = 1
 [http]
@@ -30,27 +30,40 @@
   autocorrect = -1
 [rebase]
   autoStash = 1
+  autoquash = true
 [merge]
   tool = vimdiff
+	conflictstyle = diff3
 [mergetool]
   prompt = true
 [mergetool "vimdiff"]
   cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[diff]
+  tool = difftastic
+  algorithm = histogram
+  colorMoved = default
 [difftool]
   prompt = false
-[diff]
-  tool = vimdiff<Paste>
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true
 [pull]
   rebase = false
 [remote "origin"]
   prune = true
-[gpg]
-  program = /usr/local/bin/gpg
 [init]
   defaultBranch = main
-[tag]
-  gpgSign = true
 [submodule]
   recurse = true
 [include]
   path = ~/.gitconfig-osx
+[branch]
+  autoSetupMerge = always
+[rerere]
+  enabled = true
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = true      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
