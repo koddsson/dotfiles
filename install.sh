@@ -1,5 +1,3 @@
-# Update node to a decent version
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo bash -
-sudo apt-get install -y nodejs
+# Assume that there's a node.js binary on this machine
 
 npx --yes zx install.mjs
