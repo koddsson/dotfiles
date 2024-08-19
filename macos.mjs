@@ -7,26 +7,22 @@ await $`sudo mkdir -p /usr/local/bin /usr/local/lib /usr/local/include /usr/loca
 await $`sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share`
 
 await spinner(async () => {
+  // Install my preferred node version manager `n` and start using the node LTS.
   await $`npm install -g npm@latest n`
-  
   await $`n lts`
+
   
   // Re-hash the shell so it picks up changes from n
   await $`hash -r`
   // Update path after installing latest node
   await $`PATH="$PATH"`
-  
+
+  // Install all brew packages
+  await $`brew update`
   await $`brew bundle install`
   
-  // Remove bash and zshrc configs
-  try {
-    await $`rm -rf .oh-my-bash`
-    await $`rm -rf .oh-my-zsh`
-    await $`rm .zshrc`.quiet()
-  } catch (_) {
-    // Do nothing
-  }
   
+  // Install npm packages
   const globalNpmPackages = [
     '@koddsson/coworking-with',       // @koddsson/coworking-with: utility to add `coworking-with` stanzas to commits
     'typescript-language-server',     // typescript-language-server: Needed for TypeScript LSP in neovim
@@ -34,8 +30,6 @@ await spinner(async () => {
     'tree-sitter',                    // Needed so that treesitter can install parsers automatically
     'typescript',                     // Needed for.. something.
   ]
-  
-  // Install npm packages
   await $`npm install -g ${globalNpmPackages}`
   
   // Pull any submodules
