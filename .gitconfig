@@ -1,69 +1,89 @@
 [user]
-  name = Kristján Oddsson
-  email = koddsson@gmail.com
+	name = Kristján Oddsson
+	email = koddsson@gmail.com
 	signingkey = 55103ED7B821DC13
 [alias]
-  st = status -sb
-  recent = !x git-recent
-  ranch = !imgcat ~/Downloads/cowbow-kitten.png
+	st = status -sb
+	recent = !x git-recent
+	ranch = !imgcat ~/Downloads/cowbow-kitten.jpg
 [core]
-  pager = delta
-  editor = nvim
-  excludesfile = ~/.gitignore
+	pager = delta
+	editor = nvim
+	excludesfile = ~/.gitignore
+	fsmonitor = true
+	untrackedCache = true
 [commit]
-  verbose = true
-  template = ~/.gitmessage
+	verbose = true
+	template = ~/.gitmessage
 	gpgsign = false
 [github]
-  user = koddsson
+	user = koddsson
 [push]
 	default = simple
 	autoSetupRemote = true
-	autoSetupRemote = true
+	followTags = true
 [grep]
-  lineNumber = true
+	lineNumber = true
 [gc]
-  auto = 1
+	auto = 1
 [http]
-  sslVerify = true
+	sslVerify = true
 [help]
-  autocorrect = -1
+	autocorrect = -1
 [rebase]
-  autoStash = 1
-  autoquash = true
+	autoStash = true
+	autosquash = true
+	updateRefs = true
 [merge]
-  tool = vimdiff
-	conflictstyle = diff3
+	tool = vimdiff
+	conflictstyle = zdiff3
 [mergetool]
-  prompt = true
+	prompt = true
 [mergetool "vimdiff"]
-  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [diff]
-  tool = difftastic
-  algorithm = histogram
-  colorMoved = default
+	tool = difftastic
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [difftool]
-  prompt = false
+	prompt = false
 [difftool "difftastic"]
-  cmd = difft "$LOCAL" "$REMOTE"
+	cmd = difft "$LOCAL" "$REMOTE"
 [pager]
-  difftool = true
+	difftool = true
 [pull]
-  rebase = false
+	rebase = true
 [remote "origin"]
-  prune = true
+	prune = true
 [init]
-  defaultBranch = main
+	defaultBranch = main
 [submodule]
-  recurse = true
+	recurse = true
 [include]
-  path = ~/.gitconfig-osx
+	path = ~/.gitconfig-osx
 [branch]
-  autoSetupMerge = always
+	autoSetupMerge = always
+	sort = -committerdate
 [rerere]
-  enabled = true
+	enabled = true
+	autoupdate = true
 [interactive]
-  diffFilter = delta --color-only
+	diffFilter = delta --color-only
 [delta]
-    navigate = true    # use n and N to move between diff sections
-    light = true      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+	navigate = true
+	light = true
+[column]
+	ui = auto
+[tag]
+	sort = version:refname
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

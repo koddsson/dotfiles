@@ -1,1 +1,0 @@
-/Users/kristjanoddsson/.local/share/omf/themes/l/fish_prompt.fish

@@ -4,3 +4,5 @@ launch.json
 .vscode
 .vcmrc
 .cfg
+.git-branches.toml
+Brewfile.lock.json
